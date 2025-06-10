@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logistics-app-config
+  namespace: erp-microservices
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://logistics-db-service:5432/mydatabase
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logistics-app-deployment
+  namespace: erp-microservices
+  labels:
+    app: logistics-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logistics-app
+  template:
+    metadata:
+      labels:
+        app: logistics-app
+    spec:
+      containers:
+        - name: logistics-service
+          image: your-container-registry/logistics-service:latest # Placeholder image name
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: logistics-app-config
+                  key: SPRING_DATASOURCE_URL
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: logistics-db-secret
+                  key: POSTGRES_USER
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: logistics-db-secret
+                  key: POSTGRES_PASSWORD
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: "update"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 15
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: logistics-app-service
+  namespace: erp-microservices
+spec:
+  selector:
+    app: logistics-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
