@@ -35,7 +35,6 @@ CREATE TABLE items (
     item_name VARCHAR(255) NOT NULL,
     barcode VARCHAR(100),
     description TEXT,
-    category_id UUID REFERENCES categories(category_id) ON DELETE SET NULL,
     unit_of_measure VARCHAR(50) NOT NULL,
     weight DECIMAL(10, 2),
     volume DECIMAL(10, 2),
