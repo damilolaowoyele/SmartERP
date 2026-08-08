@@ -1,143 +1,288 @@
-SmartERP Inventory Management System
+# smartERP
 
-Overview
+**Enterprise Resource Planning System - Microservices Architecture**
 
-SmartERP Inventory Management System is a comprehensive solution for managing inventory, warehouses, and stock counts. It is built using Java, Spring Boot, and Maven, and it leverages a PostgreSQL database for data persistence. The application is designed to handle various use cases and potential edge cases thoroughly, ensuring a robust and production-ready system.
+![Java](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.0-green)
+![Security](https://img.shields.io/badge/Security-JWT%20%26%20Spring%20Security-red)
+![Database](https://img.shields.io/badge/Database-PostgreSQL-blue)
+![Build](https://img.shields.io/badge/Build-Maven-orange)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 
-Features
+## 📖 Project Overview
 
-- **Category Management**: Create, update, delete, and retrieve categories and their associated items.
-- **Warehouse Management**: Manage warehouses, including creating, updating, deleting, and retrieving warehouse details.
-- **Warehouse Section Management**: Handle warehouse sections, including capacity checks and stock management.
-- **Stock Count Management**: Manage stock counts, including creating, updating, deleting, and retrieving stock count details.
-- **Inventory Movement**: Track inventory movements across different warehouses and sections.
+**smartERP** is a modular, microservices-based Enterprise Resource Planning system designed to streamline business operations. Built with modern Java technologies, it provides a robust foundation for managing inventory, logistics, procurement, and transactions with enterprise-grade security.
 
-Technologies Used
+### Current Capabilities
+- ✅ **Secure Authentication & Authorization**: JWT-based stateless auth with Role/Permission granularity.
+- ✅ **Inventory Management**: Complete lifecycle management for products, items, categories, warehouses, and stock movements.
+- ✅ **Audit Trail**: Comprehensive tracking of all data changes with user attribution.
+- ✅ **Database Migration**: Production-ready Flyway setup for schema versioning.
+- ✅ **Test Coverage**: Extensive unit testing for business logic and security flows.
 
-- **Java**: Programming language used for the application.
-- **Spring Boot**: Framework used for building the application.
-- **Maven**: Build automation tool used for managing dependencies and building the project.
-- **PostgreSQL**: Database used for data persistence.
-- **Docker**: Used for containerizing the application and database.
+### Project Status
+The **Core** (Security) and **Inventory** modules are fully implemented and tested. Modules for Logistics, Procurement, and Transaction are scaffolded and ready for development.
 
-Prerequisites
+---
 
-- Java 11 or higher
-- Maven 3.6 or higher
-- Docker (for running the application in containers)
+## 🚀 Key Features
 
-Getting Started
+### Security Module (Core)
+- **JWT Authentication**: Stateless authentication with Access and Refresh tokens.
+- **Role-Based Access Control (RBAC)**: Granular permissions assigned via roles.
+- **User Management**: Registration, profile management, and secure password handling (BCrypt).
+- **Auto-Discovery**: Secure endpoint exposure via Spring Actuator.
 
-Clone the Repository
+### Inventory Module
+- **Product & Item Management**: Hierarchical categorization and detailed item attributes.
+- **Warehouse Management**: Multi-warehouse support with section/bin tracking.
+- **Stock Control**: Real-time stock levels, batch tracking, and expiration management.
+- **Movements**: Detailed logging of stock-in, stock-out, transfers, and adjustments.
+- **Stock Counting**: Cycle count and physical inventory reconciliation workflows.
 
-```sh
+---
+
+## 🏗 Architecture
+
+smartERP follows a **Modular Monolith** architecture designed for easy extraction into microservices.
+
+```
+┌─────────────┐      ┌──────────────┐
+│   Client    │─────▶│  API Gateway │
+└─────────────┘      └──────┬───────┘
+                            │
+        ┌───────────────────┼───────────────────┐
+        ▼                   ▼                   ▼
+   ┌─────────┐        ┌──────────┐       ┌───────────┐
+   │  Core   │        │ Inventory│       │ Logistics │
+   │ (Auth)  │        │          │       │ (Skeleton)│
+   └────┬────┘        └────┬─────┘       └────┬──────┘
+        │                  │                  │
+        └──────────────────┴──────────────────┘
+                           │
+                           ▼
+                    ┌─────────────┐
+                    │ PostgreSQL  │
+                    │   +Flyway   │
+                    └─────────────┘
+```
+
+### Module Structure
+| Module | Responsibility | Status |
+| :--- | :--- | :--- |
+| **Core** | Security, Auth, User Mgmt, Common Utils | ✅ Complete |
+| **Inventory** | Products, Stock, Warehouses, Movements | ✅ Complete |
+| **Logistics** | Shipping, Routing, Delivery | 🚧 Skeleton |
+| **Procurement** | Purchasing, Suppliers, Orders | 🚧 Skeleton |
+| **Transaction** | Financials, Invoicing, Payments | 🚧 Skeleton |
+
+---
+
+## 🛠 Technology Stack
+
+| Component | Technology | Version |
+| :--- | :--- | :--- |
+| **Language** | Java | 21 |
+| **Framework** | Spring Boot | 3.4.0 |
+| **Security** | Spring Security 6 + JWT | Latest |
+| **Database** | PostgreSQL | 15+ |
+| **ORM** | Hibernate / JPA | 6.x |
+| **Migrations** | Flyway | 10.x |
+| **Build Tool** | Maven | 3.9+ |
+| **Mapping** | MapStruct | 1.5+ |
+| **Utils** | Lombok | 1.18+ |
+| **Testing** | JUnit 5, Mockito, H2 | Latest |
+
+---
+
+## 📂 Project Structure
+
+```text
+smartERP/
+├── Core/                   # Security & Auth Module
+│   ├── src/main/java/...   # Entities, Repos, Services, Controllers, Security Config
+│   └── src/test/...        # Unit & Integration Tests
+├── Inventory/              # Inventory Management Module
+│   ├── src/main/java/...   # Domain Logic
+│   └── src/test/...        # Unit Tests
+├── Logistics/              # Future Module
+├── Procurement/            # Future Module
+├── Transaction/            # Future Module
+├── pom.xml                 # Parent POM
+└── README.md
+```
+
+---
+
+## ⚙️ Prerequisites
+
+Before running smartERP, ensure you have:
+- **JDK 21** installed and `JAVA_HOME` set.
+- **Maven 3.9+** installed.
+- **PostgreSQL 15+** running locally or accessible via network.
+- **Docker** (optional) for containerized database.
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Clone the Repository
+```bash
 git clone https://github.com/damilolaowoyele/SmartERP.git
 cd SmartERP
 ```
 
-Build the Application
+### 2. Database Configuration
+Create a PostgreSQL database named `smarterp`:
+```sql
+CREATE DATABASE smarterp;
+```
 
-```sh
+Update `application.properties` in the `Core` module (or use Environment Variables):
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/smarterp
+spring.datasource.username=your_user
+spring.datasource.password=your_password
+```
+
+### 3. Build the Application
+From the root directory:
+```bash
 mvn clean install
 ```
 
-Running the Application
-
-Using Docker Compose
-
-1. Ensure Docker is installed and running.
-2. Navigate to the `Inventory` directory.
-3. Run the following command to start the application and PostgreSQL database:
-
-```sh
-docker-compose up
-```
-
-Without Docker
-
-1. Ensure PostgreSQL is installed and running.
-2. Update the `application.properties` file with your PostgreSQL configuration.
-3. Run the application using Maven:
-
-```sh
+### 4. Run Migrations & Start
+Flyway migrations run automatically on startup. Run the Core module first to establish security:
+```bash
+cd Core
 mvn spring-boot:run
 ```
 
-API Endpoints
+To run the Inventory module (requires Core to be running for auth):
+```bash
+cd ../Inventory
+mvn spring-boot:run
+```
 
-Category Controller
+---
 
-- **POST /api/categories**: Create a new category.
-- **PUT /api/categories/{categoryId}**: Update an existing category.
-- **GET /api/categories/{categoryId}**: Retrieve a category by its ID.
-- **GET /api/categories**: Retrieve all categories.
-- **GET /api/categories/root**: Retrieve root categories.
-- **GET /api/categories/subcategories/{parentId}**: Retrieve subcategories by parent ID.
-- **DELETE /api/categories/{categoryId}**: Delete a category.
-- **POST /api/categories/{categoryId}/items/{itemId}**: Add an item to a category.
-- **DELETE /api/categories/{categoryId}/items/{itemId}**: Remove an item from a category.
+## 🔐 Authentication & Authorization
 
-Warehouse Controller
+### Flow
+1. **Register**: `POST /api/auth/register`
+2. **Login**: `POST /api/auth/login` → Returns `accessToken` & `refreshToken`.
+3. **Access Protected Resources**: Include `Authorization: Bearer <accessToken>` in headers.
+4. **Refresh**: `POST /api/auth/refresh` with `refreshToken`.
 
-- **POST /api/warehouses**: Create a new warehouse.
-- **PUT /api/warehouses/{warehouseId}**: Update an existing warehouse.
-- **GET /api/warehouses/{warehouseId}**: Retrieve a warehouse by its ID.
-- **GET /api/warehouses**: Retrieve all warehouses.
-- **GET /api/warehouses/search**: Search warehouses by location.
-- **DELETE /api/warehouses/{warehouseId}**: Delete a warehouse.
+### Roles & Permissions
+- **Roles**: `ADMIN`, `USER`, `MANAGER` (Configurable via DB seed).
+- **Permissions**: Granular strings like `inventory:item:create`, `user:read`.
+- **Enforcement**: Methods secured with `@PreAuthorize("hasAuthority('...')")`.
 
-Warehouse Section Controller
+### Default Admin Account
+On first run, the system seeds an `ADMIN` role. You must register the first admin user manually via the registration endpoint.
 
-- **POST /api/warehouse-sections**: Create a new warehouse section.
-- **PUT /api/warehouse-sections/{sectionId}**: Update an existing warehouse section.
-- **GET /api/warehouse-sections/{sectionId}**: Retrieve a warehouse section by its ID.
-- **GET /api/warehouse-sections**: Retrieve all warehouse sections.
-- **GET /api/warehouse-sections/warehouse/{warehouseId}**: Retrieve warehouse sections by warehouse ID.
-- **DELETE /api/warehouse-sections/{sectionId}**: Delete a warehouse section.
-- **GET /api/warehouse-sections/{sectionId}/has-enough-capacity**: Check if a warehouse section has enough capacity.
-- **GET /api/warehouse-sections/{sectionId}/total-stock-count**: Retrieve the total stock count for a warehouse section.
-- **POST /api/warehouse-sections/{sectionId}/add-stock**: Add stock to a warehouse section.
-- **POST /api/warehouse-sections/{sectionId}/remove-stock**: Remove stock from a warehouse section.
+---
 
-Stock Count Controller
+## 🗄 Database & Flyway
 
-- **POST /api/stock-counts**: Create a new stock count.
-- **GET /api/stock-counts/{countId}**: Retrieve a stock count by its ID.
-- **GET /api/stock-counts**: Retrieve all stock counts.
-- **GET /api/stock-counts/item/{itemId}**: Retrieve stock counts by item ID.
-- **GET /api/stock-counts/warehouse/{warehouseId}**: Retrieve stock counts by warehouse ID.
-- **GET /api/stock-counts/warehouse/{warehouseId}/section/{sectionId}**: Retrieve stock counts by warehouse and section ID.
-- **GET /api/stock-counts/available**: Retrieve available stock counts.
-- **DELETE /api/stock-counts/{countId}**: Delete a stock count.
-- **GET /api/stock-counts/total-batch-quantity/{itemId}**: Retrieve the total batch quantity for an item.
-- **GET /api/stock-counts/total-aggregated-quantity/{itemId}**: Retrieve the total aggregated quantity for an item.
+smartERP uses **Flyway** for strict schema versioning. Hibernate is configured to `validate` only.
 
-Inventory Movement Controller
+- **Location**: `src/main/resources/db/migration` (in Core module)
+- **Naming**: `V<Version>__<description>.sql` (e.g., `V1__initial_schema.sql`)
+- **Baseline**: Automatically applied on first run against an empty DB.
+- **Seed Data**: Default roles and permissions are inserted via `V3__seed_roles_permissions.sql`.
 
-- **POST /api/inventory-movements**: Create a new inventory movement.
-- **GET /api/inventory-movements/{movementId}**: Retrieve an inventory movement by its ID.
-- **GET /api/inventory-movements**: Retrieve all inventory movements.
-- **GET /api/inventory-movements/item-batch/{itemBatchId}**: Retrieve inventory movements by item batch ID.
-- **GET /api/inventory-movements/warehouse/{warehouseId}**: Retrieve inventory movements by warehouse ID.
-- **GET /api/inventory-movements/date-range**: Retrieve inventory movements by date range.
-- **GET /api/inventory-movements/user/{userId}**: Retrieve inventory movements by user ID.
+**⚠️ Important**: Never modify an applied migration file. Create a new versioned file for changes.
 
-Exception Handling
+#### Current Migrations
+1. `V1__initial_schema.sql`: Core tables (users, roles, permissions, relationships).
+2. `V2__create_inventory_schema.sql`: Inventory tables (products, items, warehouses, stock).
+3. `V3__seed_roles_permissions.sql`: Default security data.
 
-The application uses a global exception handler to manage exceptions such as `ResourceNotFoundException` and `InvalidOperationException`. This ensures that meaningful error messages are returned to the client.
+---
 
-Security
+## 🧪 Testing
 
-Sensitive information such as database credentials should be stored in environment variables or a `.env` file, which is referenced in the `docker-compose.yml` file.
+Run all tests from root:
+```bash
+mvn test
+```
 
-Contributing
+Run specific module tests:
+```bash
+mvn test -pl Core
+mvn test -pl Inventory
+```
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+**Coverage**:
+- Service Layer Logic (Auth, Inventory)
+- Security Filters & JWT Utils
+- Authentication Flows
+- Exception Handling
 
-License
+---
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+## 📝 API Documentation
 
-Contact
+### Authentication Endpoints
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| POST | `/api/auth/register` | Register new user | No |
+| POST | `/api/auth/login` | Login & get tokens | No |
+| POST | `/api/auth/refresh` | Refresh access token | No (Refresh Token) |
+| GET | `/api/auth/me` | Get current user profile | Yes |
 
+### Inventory Endpoints (Sample)
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| GET | `/api/inventory/categories` | List categories | Yes |
+| POST | `/api/inventory/products` | Create product | Yes (Permission) |
+| GET | `/api/inventory/warehouses` | List warehouses | Yes |
+| POST | `/api/inventory/movements` | Record stock movement | Yes (Permission) |
+
+*(Full API spec available via Postman collection or Swagger UI if enabled)*
+
+---
+
+## 🛠 Development Guide
+
+### Adding a New Feature
+1. Create Entity in respective module.
+2. Create Flyway migration `Vx__.sql` in `Core/src/main/resources/db/migration`.
+3. Create Repository, Service, Controller.
+4. Add Unit Tests.
+5. Secure endpoints with `@PreAuthorize`.
+
+### Coding Conventions
+- Use **Lombok** for boilerplate (`@Data`, `@Builder`, etc.).
+- Use **MapStruct** for DTO mapping.
+- Follow **REST** principles for controllers.
+- Keep services transactional (`@Transactional`).
+- Always use DTOs for API requests/responses.
+
+---
+
+## 🔧 Troubleshooting
+
+### Database Connection Errors
+Ensure PostgreSQL is running and credentials in `application.properties` match your setup.
+
+### Flyway Migration Failures
+If migrations fail due to existing tables, ensure the DB is empty or configure `flyway.baseline-on-first=true`.
+
+### JWT Token Expired
+Use the `/api/auth/refresh` endpoint with your valid refresh token to get a new access token.
+
+---
+
+## 📄 License
+MIT License - See LICENSE file for details.
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure all tests pass and migrations are valid before submitting.
+
+## 📬 Contact
 For any inquiries or issues, please contact the repository owner at [damilolaowoyele](https://github.com/damilolaowoyele).
