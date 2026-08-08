@@ -1,10 +1,10 @@
 package org.smarterp.inventory.service.impl;
 
-import org.smarterp.inventory.dto.warehouse.WarehouseUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import org.smarterp.inventory.Repository.WarehouseRepository;
 import org.smarterp.inventory.dto.warehouse.WarehouseCreateRequest;
 import org.smarterp.inventory.dto.warehouse.WarehouseDTO;
+import org.smarterp.inventory.dto.warehouse.WarehouseUpdateRequest;
 import org.smarterp.inventory.entity.Warehouse;
 import org.smarterp.inventory.exception.ResourceAlreadyExistsException;
 import org.smarterp.inventory.exception.ResourceNotFoundException;
@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional
 public class WarehouseServiceImpl implements WarehouseService {
+
     private final WarehouseRepository warehouseRepository;
     private final WarehouseMapper warehouseMapper;
 
@@ -31,44 +32,46 @@ public class WarehouseServiceImpl implements WarehouseService {
         }
 
         Warehouse warehouse = warehouseMapper.toEntity(request);
-        return warehouseMapper.toDTO(warehouseRepository.save(warehouse));
+        Warehouse savedWarehouse = warehouseRepository.save(warehouse);
+        return warehouseMapper.toDTO(savedWarehouse);
     }
 
     @Override
     public WarehouseDTO updateWarehouse(UUID warehouseId, WarehouseUpdateRequest request) {
         Warehouse warehouse = warehouseRepository.findById(warehouseId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Warehouse", warehouseId));
+                .orElseThrow(() -> ResourceNotFoundException.forField("ItemBatch", "batchId", warehouseId));
 
-        if (request.getName() != null &&
-                !request.getName().equalsIgnoreCase(warehouse.getName()) &&
-                warehouseRepository.existsByNameIgnoreCase(request.getName())) {
-            throw ResourceAlreadyExistsException.forField("Warehouse", "name", request.getName());
+        if (request.getName() != null && !request.getName().equals(warehouse.getName())) {
+            if (warehouseRepository.existsByNameIgnoreCase(request.getName())) {
+                throw ResourceAlreadyExistsException.forField("Warehouse", "name", request.getName());
+            }
+            warehouse.setName(request.getName());
+        }
+        if (request.getLocation() != null) {
+            warehouse.setLocation(request.getLocation());
+        }
+        if (request.getCapacity() != null) {
+            warehouse.setCapacity(request.getCapacity());
         }
 
-        if (request.getName() != null) warehouse.setName(request.getName());
-        if (request.getLocation() != null) warehouse.setLocation(request.getLocation());
-        if (request.getCapacity() != null) warehouse.setCapacity(request.getCapacity());
-
-        return warehouseMapper.toDTO(warehouseRepository.save(warehouse));
+        Warehouse updatedWarehouse = warehouseRepository.save(warehouse);
+        return warehouseMapper.toDTO(updatedWarehouse);
     }
 
     @Override
     @Transactional(readOnly = true)
     public WarehouseDTO getWarehouseById(UUID warehouseId) {
-        return warehouseMapper.toDTO(warehouseRepository.findById(warehouseId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Warehouse", warehouseId)));
+        Warehouse warehouse = warehouseRepository.findById(warehouseId)
+                .orElseThrow(() -> ResourceNotFoundException.forField("ItemBatch", "batchId", warehouseId));
+        return warehouseMapper.toDTO(warehouse);
     }
+
     @Override
     @Transactional(readOnly = true)
     public List<WarehouseDTO> getAllWarehouses() {
-        List<WarehouseDTO> warehouses = warehouseRepository.findAll().stream()
+        return warehouseRepository.findAll().stream()
                 .map(warehouseMapper::toDTO)
                 .collect(Collectors.toList());
-        if (warehouses.isEmpty()) {
-            // Handle the case where no warehouses are found
-            throw new ResourceNotFoundException("No warehouses found");
-        }
-        return warehouses;
     }
 
     @Override
@@ -81,9 +84,9 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     @Override
     public void deleteWarehouse(UUID warehouseId) {
-        Warehouse warehouse = warehouseRepository.findById(warehouseId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Warehouse", warehouseId));
-
-        warehouseRepository.delete(warehouse);
+        if (!warehouseRepository.existsById(warehouseId)) {
+            throw ResourceNotFoundException.forField("ItemBatch", "batchId", warehouseId);
+        }
+        warehouseRepository.deleteById(warehouseId);
     }
 }

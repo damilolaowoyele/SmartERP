@@ -3,7 +3,6 @@ package org.smarterp.inventory.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import org.smarterp.core.entity.User;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -53,7 +52,7 @@ public class InventoryMovement {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by")
-    private User createdBy;
+    private UserReference createdBy;
 
     public enum MovementType {
         INBOUND, OUTBOUND, TRANSFER, ADJUSTMENT

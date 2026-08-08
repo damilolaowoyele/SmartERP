@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
+
     private final CategoryRepository categoryRepository;
     private final ItemRepository itemRepository;
     private final CategoryMapper categoryMapper;
@@ -34,44 +35,51 @@ public class CategoryServiceImpl implements CategoryService {
         }
 
         Category category = categoryMapper.toEntity(request);
-
+        
         if (request.getParentCategoryId() != null) {
             Category parentCategory = categoryRepository.findById(request.getParentCategoryId())
-                    .orElseThrow(() -> ResourceNotFoundException.forId("Parent Category", request.getParentCategoryId()));
+                    .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", request.getParentCategoryId()));
             category.setParentCategory(parentCategory);
         }
 
-        return categoryMapper.toDTO(categoryRepository.save(category));
+        Category savedCategory = categoryRepository.save(category);
+        return categoryMapper.toDTO(savedCategory);
     }
 
     @Override
     public CategoryDTO updateCategory(UUID categoryId, CategoryUpdateRequest request) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Category", categoryId));
+                .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", categoryId));
 
-        if (request.getName() != null &&
-                !request.getName().equalsIgnoreCase(category.getName()) &&
-                categoryRepository.existsByNameIgnoreCase(request.getName())) {
-            throw ResourceAlreadyExistsException.forField("Category", "name", request.getName());
+        if (request.getName() != null && !request.getName().equals(category.getName())) {
+            if (categoryRepository.existsByNameIgnoreCase(request.getName())) {
+                throw ResourceAlreadyExistsException.forField("Category", "name", request.getName());
+            }
         }
 
-        if (request.getName() != null) category.setName(request.getName());
-        if (request.getDescription() != null) category.setDescription(request.getDescription());
+        categoryMapper.updateEntity(category, request);
 
         if (request.getParentCategoryId() != null) {
-            Category parentCategory = categoryRepository.findById(request.getParentCategoryId())
-                    .orElseThrow(() -> ResourceNotFoundException.forId("Parent Category", request.getParentCategoryId()));
-            category.setParentCategory(parentCategory);
+            if (!request.getParentCategoryId().equals(
+                    category.getParentCategory() != null ? category.getParentCategory().getCategoryId() : null)) {
+                Category parentCategory = categoryRepository.findById(request.getParentCategoryId())
+                        .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", request.getParentCategoryId()));
+                category.setParentCategory(parentCategory);
+            }
+        } else if (request.getParentCategoryId() == null && category.getParentCategory() != null) {
+            category.setParentCategory(null);
         }
 
-        return categoryMapper.toDTO(categoryRepository.save(category));
+        Category updatedCategory = categoryRepository.save(category);
+        return categoryMapper.toDTO(updatedCategory);
     }
 
     @Override
     @Transactional(readOnly = true)
     public CategoryDTO getCategoryById(UUID categoryId) {
-        return categoryMapper.toDTO(categoryRepository.findById(categoryId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Category", categoryId)));
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", categoryId));
+        return categoryMapper.toDTO(category);
     }
 
     @Override
@@ -93,44 +101,44 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     @Transactional(readOnly = true)
     public List<CategoryDTO> getSubcategories(UUID parentId) {
-        return categoryRepository.findByParentCategoryId(parentId).stream()
+        return categoryRepository.findByParentCategory_CategoryId(parentId).stream()
                 .map(categoryMapper::toDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     public void deleteCategory(UUID categoryId) {
-        Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Category", categoryId));
-
-        categoryRepository.delete(category);
+        if (!categoryRepository.existsById(categoryId)) {
+            throw ResourceNotFoundException.forField("Category", "categoryId", categoryId);
+        }
+        categoryRepository.deleteById(categoryId);
     }
 
     @Override
     public CategoryDTO addItemToCategory(UUID categoryId, UUID itemId) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Category", categoryId));
-
+                .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", categoryId));
         Item item = itemRepository.findById(itemId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Item", itemId));
+                .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", itemId));
 
         category.getItems().add(item);
         item.getCategories().add(category);
 
-        return categoryMapper.toDTO(categoryRepository.save(category));
+        Category updatedCategory = categoryRepository.save(category);
+        return categoryMapper.toDTO(updatedCategory);
     }
 
     @Override
     public CategoryDTO removeItemFromCategory(UUID categoryId, UUID itemId) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Category", categoryId));
-
+                .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", categoryId));
         Item item = itemRepository.findById(itemId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Item", itemId));
+                .orElseThrow(() -> ResourceNotFoundException.forField("Category", "categoryId", itemId));
 
         category.getItems().remove(item);
         item.getCategories().remove(category);
 
-        return categoryMapper.toDTO(categoryRepository.save(category));
+        Category updatedCategory = categoryRepository.save(category);
+        return categoryMapper.toDTO(updatedCategory);
     }
 }

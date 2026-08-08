@@ -1,10 +1,10 @@
 package org.smarterp.inventory.service.impl;
 
-import org.smarterp.inventory.dto.product.ProductUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import org.smarterp.inventory.Repository.ProductRepository;
 import org.smarterp.inventory.dto.product.ProductCreateRequest;
 import org.smarterp.inventory.dto.product.ProductDTO;
+import org.smarterp.inventory.dto.product.ProductUpdateRequest;
 import org.smarterp.inventory.entity.Product;
 import org.smarterp.inventory.exception.ResourceAlreadyExistsException;
 import org.smarterp.inventory.exception.ResourceNotFoundException;
@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional
 public class ProductServiceImpl implements ProductService {
+
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
@@ -32,33 +33,42 @@ public class ProductServiceImpl implements ProductService {
         }
 
         Product product = productMapper.toEntity(request);
-        return productMapper.toDTO(productRepository.save(product));
+        Product savedProduct = productRepository.save(product);
+        return productMapper.toDTO(savedProduct);
     }
 
     @Override
     public ProductDTO updateProduct(UUID productId, ProductUpdateRequest request) {
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Product", productId));
+                .orElseThrow(() -> ResourceNotFoundException.forField("ItemBatch", "batchId", productId));
 
-        if (request.getProductName() != null &&
-                !request.getProductName().equalsIgnoreCase(product.getProductName()) &&
-                productRepository.existsByProductNameIgnoreCase(request.getProductName())) {
-            throw ResourceAlreadyExistsException.forField("Product", "name", request.getProductName());
+        if (request.getProductName() != null && !request.getProductName().equals(product.getProductName())) {
+            if (productRepository.existsByProductNameIgnoreCase(request.getProductName())) {
+                throw ResourceAlreadyExistsException.forField("Product", "name", request.getProductName());
+            }
+            product.setProductName(request.getProductName());
         }
 
-        if (request.getProductName() != null) product.setProductName(request.getProductName());
-        if (request.getDescription() != null) product.setDescription(request.getDescription());
-        if (request.getPrice() != null) product.setPrice(request.getPrice());
-        if (request.getDefaultCost() != null) product.setDefaultCost(request.getDefaultCost());
+        if (request.getDescription() != null) {
+            product.setDescription(request.getDescription());
+        }
+        if (request.getPrice() != null) {
+            product.setPrice(request.getPrice());
+        }
+        if (request.getDefaultCost() != null) {
+            product.setDefaultCost(request.getDefaultCost());
+        }
 
-        return productMapper.toDTO(productRepository.save(product));
+        Product updatedProduct = productRepository.save(product);
+        return productMapper.toDTO(updatedProduct);
     }
 
     @Override
     @Transactional(readOnly = true)
     public ProductDTO getProductById(UUID productId) {
-        return productMapper.toDTO(productRepository.findById(productId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Product", productId)));
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> ResourceNotFoundException.forField("ItemBatch", "batchId", productId));
+        return productMapper.toDTO(product);
     }
 
     @Override
@@ -87,9 +97,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(UUID productId) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("Product", productId));
-
-        productRepository.delete(product);
+        if (!productRepository.existsById(productId)) {
+            throw ResourceNotFoundException.forField("ItemBatch", "batchId", productId);
+        }
+        productRepository.deleteById(productId);
     }
 }

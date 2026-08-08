@@ -11,7 +11,8 @@ import java.util.UUID;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, UUID> {
     List<Category> findByParentCategoryIsNull();
-    List<Category> findByParentCategoryId(UUID parentId);
+//    List<Category> findByParentCategoryId(UUID parentId);
+    List<Category> findByParentCategory_CategoryId(UUID parentId);
     Optional<Category> findByNameIgnoreCase(String name);
     boolean existsByNameIgnoreCase(String name);
 }

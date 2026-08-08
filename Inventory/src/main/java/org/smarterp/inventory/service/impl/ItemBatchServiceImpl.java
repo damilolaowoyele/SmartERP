@@ -1,18 +1,18 @@
 package org.smarterp.inventory.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.smarterp.inventory.Repository.ItemBatchRepository;
-import org.smarterp.inventory.Repository.ItemRepository;
-import org.smarterp.inventory.Repository.WarehouseRepository;
-import org.smarterp.inventory.Repository.WarehouseSectionRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.smarterp.inventory.dto.batch.ItemBatchCreateRequest;
 import org.smarterp.inventory.dto.batch.ItemBatchDTO;
 import org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest;
-import org.smarterp.inventory.entity.*;
-import org.smarterp.inventory.exception.InvalidOperationException;
-import org.smarterp.inventory.exception.ResourceAlreadyExistsException;
+import org.smarterp.inventory.entity.ItemBatch;
+import org.smarterp.inventory.entity.Item;
+import org.smarterp.inventory.entity.Warehouse;
 import org.smarterp.inventory.exception.ResourceNotFoundException;
 import org.smarterp.inventory.mapper.ItemBatchMapper;
+import org.smarterp.inventory.Repository.ItemBatchRepository;
+import org.smarterp.inventory.Repository.ItemRepository;
+import org.smarterp.inventory.Repository.WarehouseRepository;
 import org.smarterp.inventory.service.ItemBatchService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,94 +22,83 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class ItemBatchServiceImpl implements ItemBatchService {
+
     private final ItemBatchRepository itemBatchRepository;
     private final ItemRepository itemRepository;
     private final WarehouseRepository warehouseRepository;
-    private final WarehouseSectionRepository sectionRepository;
     private final ItemBatchMapper itemBatchMapper;
 
     @Override
+    @Transactional
     public ItemBatchDTO createBatch(ItemBatchCreateRequest request) {
-        if (itemBatchRepository.existsByItemIdAndBatchNumber(request.getItemId(), request.getBatchNumber())) {
-            throw ResourceAlreadyExistsException.forField("ItemBatch", "batchNumber", request.getBatchNumber());
-        }
+        log.info("Creating new item batch for item ID: {}", request.getItemId());
 
         Item item = itemRepository.findById(request.getItemId())
-                .orElseThrow(() -> ResourceNotFoundException.forId("Item", request.getItemId()));
+                .orElseThrow(() -> ResourceNotFoundException.forField("Item", "itemId", request.getItemId()));
 
-        ItemBatch batch = itemBatchMapper.toEntity(request);
-        batch.setItem(item);
-
+        Warehouse warehouse = null;
         if (request.getWarehouseId() != null) {
-            Warehouse warehouse = warehouseRepository.findById(request.getWarehouseId())
-                    .orElseThrow(() -> ResourceNotFoundException.forId("Warehouse", request.getWarehouseId()));
-            batch.setWarehouse(warehouse);
-
-            if (request.getSectionId() != null) {
-                WarehouseSection section = sectionRepository.findById(request.getSectionId())
-                        .orElseThrow(() -> ResourceNotFoundException.forId("WarehouseSection", request.getSectionId()));
-
-                if (!section.getWarehouse().getWarehouseId().equals(warehouse.getWarehouseId())) {
-                    throw new InvalidOperationException("Section does not belong to the specified warehouse");
-                }
-
-                batch.setSection(section);
-            }
+            warehouse = warehouseRepository.findById(request.getWarehouseId())
+                    .orElseThrow(() -> ResourceNotFoundException.forField("Warehouse", "warehouseId", request.getWarehouseId()));
         }
 
-        return itemBatchMapper.toDTO(itemBatchRepository.save(batch));
+        ItemBatch itemBatch = itemBatchMapper.toEntity(request);
+        itemBatch.setItem(item);
+        itemBatch.setWarehouse(warehouse);
+
+        ItemBatch savedBatch = itemBatchRepository.save(itemBatch);
+        log.info("Created item batch with ID: {}", savedBatch.getBatchId());
+
+        return itemBatchMapper.toDTO(savedBatch);
     }
 
     @Override
+    @Transactional
     public ItemBatchDTO updateBatch(UUID batchId, ItemBatchUpdateRequest request) {
-        ItemBatch batch = itemBatchRepository.findById(batchId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("ItemBatch", batchId));
+        log.info("Updating item batch with ID: {}", batchId);
 
-        if (request.getBatchNumber() != null &&
-                !request.getBatchNumber().equals(batch.getBatchNumber()) &&
-                itemBatchRepository.existsByItemIdAndBatchNumber(batch.getItem().getItemId(), request.getBatchNumber())) {
-            throw ResourceAlreadyExistsException.forField("ItemBatch", "batchNumber", request.getBatchNumber());
+        ItemBatch itemBatch = itemBatchRepository.findById(batchId)
+                .orElseThrow(() -> ResourceNotFoundException.forField("ItemBatch", "batchId", batchId));
+
+        if (request.getBatchNumber() != null) {
+            itemBatch.setBatchNumber(request.getBatchNumber());
+        }
+        if (request.getManufactureDate() != null) {
+            itemBatch.setManufactureDate(request.getManufactureDate());
+        }
+        if (request.getExpiryDate() != null) {
+            itemBatch.setExpiryDate(request.getExpiryDate());
+        }
+        if (request.getQuantity() != null) {
+            itemBatch.setQuantity(request.getQuantity());
         }
 
-        if (request.getBatchNumber() != null) batch.setBatchNumber(request.getBatchNumber());
-        if (request.getManufactureDate() != null) batch.setManufactureDate(request.getManufactureDate());
-        if (request.getExpiryDate() != null) batch.setExpiryDate(request.getExpiryDate());
-        if (request.getQuantity() != null) batch.setQuantity(request.getQuantity());
+        ItemBatch updatedBatch = itemBatchRepository.save(itemBatch);
+        log.info("Updated item batch with ID: {}", updatedBatch.getBatchId());
 
-        if (request.getWarehouseId() != null) {
-            Warehouse warehouse = warehouseRepository.findById(request.getWarehouseId())
-                    .orElseThrow(() -> ResourceNotFoundException.forId("Warehouse", request.getWarehouseId()));
-            batch.setWarehouse(warehouse);
-
-            if (request.getSectionId() != null) {
-                WarehouseSection section = sectionRepository.findById(request.getSectionId())
-                        .orElseThrow(() -> ResourceNotFoundException.forId("WarehouseSection", request.getSectionId()));
-
-                if (!section.getWarehouse().getWarehouseId().equals(warehouse.getWarehouseId())) {
-                    throw new InvalidOperationException("Section does not belong to the specified warehouse");
-                }
-
-                batch.setSection(section);
-            }
-        }
-
-        return itemBatchMapper.toDTO(itemBatchRepository.save(batch));
+        return itemBatchMapper.toDTO(updatedBatch);
     }
 
     @Override
     @Transactional(readOnly = true)
     public ItemBatchDTO getBatchById(UUID batchId) {
-        return itemBatchMapper.toDTO(itemBatchRepository.findById(batchId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("ItemBatch", batchId)));
+        log.debug("Fetching item batch with ID: {}", batchId);
+
+        ItemBatch itemBatch = itemBatchRepository.findById(batchId)
+                .orElseThrow(() -> ResourceNotFoundException.forField("ItemBatch", "batchId", batchId));
+
+        return itemBatchMapper.toDTO(itemBatch);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<ItemBatchDTO> getAllBatches() {
+        log.debug("Fetching all item batches");
+
         return itemBatchRepository.findAll().stream()
                 .map(itemBatchMapper::toDTO)
                 .collect(Collectors.toList());
@@ -118,6 +107,8 @@ public class ItemBatchServiceImpl implements ItemBatchService {
     @Override
     @Transactional(readOnly = true)
     public List<ItemBatchDTO> getBatchesByItem(UUID itemId) {
+        log.debug("Fetching item batches for item ID: {}", itemId);
+
         return itemBatchRepository.findByItemId(itemId).stream()
                 .map(itemBatchMapper::toDTO)
                 .collect(Collectors.toList());
@@ -126,6 +117,8 @@ public class ItemBatchServiceImpl implements ItemBatchService {
     @Override
     @Transactional(readOnly = true)
     public List<ItemBatchDTO> getBatchesByWarehouse(UUID warehouseId) {
+        log.debug("Fetching item batches for warehouse ID: {}", warehouseId);
+
         return itemBatchRepository.findByWarehouseId(warehouseId).stream()
                 .map(itemBatchMapper::toDTO)
                 .collect(Collectors.toList());
@@ -134,6 +127,8 @@ public class ItemBatchServiceImpl implements ItemBatchService {
     @Override
     @Transactional(readOnly = true)
     public List<ItemBatchDTO> getExpiringBatches(LocalDate beforeDate) {
+        log.debug("Fetching expiring item batches before date: {}", beforeDate);
+
         return itemBatchRepository.findByExpiryDateBefore(beforeDate).stream()
                 .map(itemBatchMapper::toDTO)
                 .collect(Collectors.toList());
@@ -142,6 +137,8 @@ public class ItemBatchServiceImpl implements ItemBatchService {
     @Override
     @Transactional(readOnly = true)
     public List<ItemBatchDTO> getAvailableBatches() {
+        log.debug("Fetching available item batches");
+
         return itemBatchRepository.findAll().stream()
                 .filter(batch -> batch.getQuantity() > 0)
                 .map(itemBatchMapper::toDTO)
@@ -149,31 +146,15 @@ public class ItemBatchServiceImpl implements ItemBatchService {
     }
 
     @Override
+    @Transactional
     public void deleteBatch(UUID batchId) {
-        ItemBatch batch = itemBatchRepository.findById(batchId)
-                .orElseThrow(() -> ResourceNotFoundException.forId("ItemBatch", batchId));
+        log.info("Deleting item batch with ID: {}", batchId);
 
-        itemBatchRepository.delete(batch);
+        if (!itemBatchRepository.existsById(batchId)) {
+            throw ResourceNotFoundException.forField("ItemBatch", "batchId", batchId);
+        }
+
+        itemBatchRepository.deleteById(batchId);
+        log.info("Deleted item batch with ID: {}", batchId);
     }
-
-//    @Override
-//    @Transactional(readOnly = true)
-//    public int getTotalBatchQuantity(UUID itemId) {
-//        return itemBatchRepository.findAllByItemId(itemId).stream()
-//                .filter(batch -> batch.getCountType() == StockCount.CountType.BATCH)
-//                .mapToInt(ItemBatch::getQuantity)
-//                .sum();
-//    }
-//
-//    @Override
-//    @Transactional(readOnly = true)
-//    public int getTotalAggregatedQuantity(UUID itemId) {
-//        return itemBatchRepository.findAllByItemId(itemId).stream()
-//                .filter(batch -> batch.getCountType() == StockCount.CountType.AGGREGATED)
-//                .mapToInt(ItemBatch::getQuantity)
-//                .sum();
-//    }
 }
-
-
-
