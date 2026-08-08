@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: logistics-db-secret
+  namespace: erp-microservices
+type: Opaque
+data:
+  POSTGRES_USER: bXl1c2Vy # "myuser" base64 encoded
+  POSTGRES_PASSWORD: c2VjcmV0 # "secret" base64 encoded
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: logistics-db-pvc
+  namespace: erp-microservices
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: logistics-db-statefulset
+  namespace: erp-microservices
+spec:
+  serviceName: "logistics-db-service"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logistics-db
+  template:
+    metadata:
+      labels:
+        app: logistics-db
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: postgres
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+              name: postgresql
+          env:
+            - name: POSTGRES_DB
+              value: "mydatabase" # Assuming same DB name as Core, can be changed
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: logistics-db-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: logistics-db-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: logistics-db-storage
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: logistics-db-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: standard
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: logistics-db-service
+  namespace: erp-microservices
+spec:
+  ports:
+    - port: 5432
+      targetPort: postgresql
+  selector:
+    app: logistics-db
+  type: ClusterIP

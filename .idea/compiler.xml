@@ -11,7 +11,6 @@
         <module name="Transaction" />
         <module name="inventory" />
         <module name="Core" />
-        <module name="Logistics" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

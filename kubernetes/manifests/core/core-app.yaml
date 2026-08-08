@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: core-app-config
+  namespace: erp-microservices
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://core-db-service:5432/mydatabase
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core-app-deployment
+  namespace: erp-microservices
+  labels:
+    app: core-app
+spec:
+  replicas: 1 # Start with 1 replica, can be scaled
+  selector:
+    matchLabels:
+      app: core-app
+  template:
+    metadata:
+      labels:
+        app: core-app
+    spec:
+      containers:
+        - name: core-service
+          image: your-container-registry/core-service:latest # Placeholder image name
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: core-app-config
+                  key: SPRING_DATASOURCE_URL
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: core-db-secret
+                  key: POSTGRES_USER
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: core-db-secret
+                  key: POSTGRES_PASSWORD
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: "update" # Or "validate", "create-drop" depending on strategy
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 15
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: core-app-service
+  namespace: erp-microservices
+spec:
+  selector:
+    app: core-app
+  ports:
+    - protocol: TCP
+      port: 8080 # Port the service will listen on
+      targetPort: 8080 # Port the container exposes
+  type: ClusterIP
