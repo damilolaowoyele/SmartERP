@@ -1,0 +1,2 @@
+-- initdb.sql
+--CREATE DATABASE IF NOT EXISTS smarterp_inventory;

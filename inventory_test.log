@@ -1,0 +1,140 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36morg.smarterp:inventory[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding inventory 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.4.0:clean[m [1m(default-clean)[m @ [36minventory[0;1m ---[m
+[[1;34mINFO[m] Deleting /workspace/Inventory/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:resources[m [1m(default-resources)[m @ [36minventory[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 4 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.13.0:compile[m [1m(default-compile)[m @ [36minventory[0;1m ---[m
+[[1;34mINFO[m] Recompiling the module because of [1mchanged source code[m.
+[[1;34mINFO[m] Compiling 78 source files with javac [debug parameters release 17] to target/classes
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;31mERROR[m] COMPILATION ERROR : 
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[12,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[13,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[14,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[29,19] cannot find symbol
+  symbol:   class InventoryMovementRepository
+  location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[30,19] cannot find symbol
+  symbol:   class ItemBatchRepository
+  location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[31,19] cannot find symbol
+  symbol:   class WarehouseRepository
+  location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[26,1] cannot find symbol
+  symbol:   class InventoryMovementRepository
+  location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[13,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[14,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[15,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[30,19] cannot find symbol
+  symbol:   class ItemBatchRepository
+  location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[31,19] cannot find symbol
+  symbol:   class ItemRepository
+  location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[32,19] cannot find symbol
+  symbol:   class WarehouseRepository
+  location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[27,1] cannot find symbol
+  symbol:   class ItemBatchRepository
+  location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[11,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[12,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[26,19] cannot find symbol
+  symbol:   class StockCountRepository
+  location: class org.smarterp.inventory.service.impl.StockCountServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[27,19] cannot find symbol
+  symbol:   class ItemBatchRepository
+  location: class org.smarterp.inventory.service.impl.StockCountServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[23,1] cannot find symbol
+  symbol:   class StockCountRepository
+  location: class org.smarterp.inventory.service.impl.StockCountServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[12,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[13,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[27,19] cannot find symbol
+  symbol:   class WarehouseSectionRepository
+  location: class org.smarterp.inventory.service.impl.WarehouseSectionServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[28,19] cannot find symbol
+  symbol:   class WarehouseRepository
+  location: class org.smarterp.inventory.service.impl.WarehouseSectionServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[24,1] cannot find symbol
+  symbol:   class WarehouseSectionRepository
+  location: class org.smarterp.inventory.service.impl.WarehouseSectionServiceImpl
+[[1;34mINFO[m] 24 errors 
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  21.161 s
+[[1;34mINFO[m] Finished at: 2026-08-08T10:27:08Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile[m [1m(default-compile)[m on project [36minventory[m: [1;31mCompilation failure[m: Compilation failure: 
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[12,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[13,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[14,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[29,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class InventoryMovementRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[30,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class ItemBatchRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[31,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class WarehouseRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[26,1] cannot find symbol
+[[1;31mERROR[m]   symbol:   class InventoryMovementRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.InventoryMovementServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[13,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[14,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[15,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[30,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class ItemBatchRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[31,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class ItemRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[32,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class WarehouseRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[27,1] cannot find symbol
+[[1;31mERROR[m]   symbol:   class ItemBatchRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.ItemBatchServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[11,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[12,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[26,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class StockCountRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.StockCountServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[27,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class ItemBatchRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.StockCountServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[23,1] cannot find symbol
+[[1;31mERROR[m]   symbol:   class StockCountRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.StockCountServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[12,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[13,41] package org.smarterp.inventory.repository does not exist
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[27,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class WarehouseSectionRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.WarehouseSectionServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[28,19] cannot find symbol
+[[1;31mERROR[m]   symbol:   class WarehouseRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.WarehouseSectionServiceImpl
+[[1;31mERROR[m] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[24,1] cannot find symbol
+[[1;31mERROR[m]   symbol:   class WarehouseSectionRepository
+[[1;31mERROR[m]   location: class org.smarterp.inventory.service.impl.WarehouseSectionServiceImpl
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[0m[0m

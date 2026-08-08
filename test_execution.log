@@ -1,0 +1,752 @@
+[0m[0m[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< org.smarterp:inventory >-----------------------
+[INFO] Building inventory 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.4.0:clean (default-clean) @ inventory ---
+[INFO] Deleting /workspace/Inventory/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ inventory ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:compile (default-compile) @ inventory ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 78 source files with javac [debug parameters release 17] to target/classes
+[INFO] /workspace/Inventory/src/main/java/org/smarterp/inventory/entity/Category.java: Some input files use or override a deprecated API.
+[INFO] /workspace/Inventory/src/main/java/org/smarterp/inventory/entity/Category.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[34,19] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[41,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[52,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[56,23] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[66,44] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[81,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[112,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[120,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[122,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[134,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[136,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[40,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[45,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[51,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[58,17] cannot find symbol
+  symbol:   method setPerformedBy(java.util.UUID)
+  location: variable movement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[61,21] cannot find symbol
+  symbol:   method getType()
+  location: variable movement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[61,65] cannot find symbol
+  symbol:   variable IN
+  location: class org.smarterp.inventory.entity.InventoryMovement.MovementType
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[62,51] cannot find symbol
+  symbol:   method getCurrentQuantity()
+  location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[63,28] cannot find symbol
+  symbol:   method getType()
+  location: variable movement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[63,72] cannot find symbol
+  symbol:   variable OUT
+  location: class org.smarterp.inventory.entity.InventoryMovement.MovementType
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[64,26] cannot find symbol
+  symbol:   method getCurrentQuantity()
+  location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[67,51] cannot find symbol
+  symbol:   method getCurrentQuantity()
+  location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[72,73] cannot find symbol
+  symbol:   method getId()
+  location: variable savedMovement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[74,39] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.InventoryMovement)
+  location: variable inventoryMovementMapper of type org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[83,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[85,39] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.InventoryMovement)
+  location: variable inventoryMovementMapper of type org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[94,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[104,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[121,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[131,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[140,43] cannot find symbol
+  symbol:   method findByPerformedBy(java.util.UUID)
+  location: variable inventoryMovementRepository of type org.smarterp.inventory.Repository.InventoryMovementRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[141,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[41,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[46,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[52,18] cannot find symbol
+  symbol:   method setCurrentQuantity(java.lang.Integer)
+  location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[55,62] cannot find symbol
+  symbol:   method getId()
+  location: variable savedBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[57,31] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.ItemBatch)
+  location: variable itemBatchMapper of type org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[66,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[68,20] cannot find symbol
+  symbol:   method getManufacturingDate()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[69,51] cannot find symbol
+  symbol:   method getManufacturingDate()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[74,20] cannot find symbol
+  symbol:   method getCostPrice()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[75,43] cannot find symbol
+  symbol:   method getCostPrice()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[77,20] cannot find symbol
+  symbol:   method getSellingPrice()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[78,46] cannot find symbol
+  symbol:   method getSellingPrice()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[80,20] cannot find symbol
+  symbol:   method getSupplierReference()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[81,51] cannot find symbol
+  symbol:   method getSupplierReference()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[83,20] cannot find symbol
+  symbol:   method getStatus()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[84,40] cannot find symbol
+  symbol:   method getStatus()
+  location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[88,64] cannot find symbol
+  symbol:   method getId()
+  location: variable updatedBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[90,31] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.ItemBatch)
+  location: variable itemBatchMapper of type org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[99,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[101,31] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.ItemBatch)
+  location: variable itemBatchMapper of type org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[110,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[120,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[130,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[140,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[149,90] cannot find symbol
+  symbol:   variable BatchStatus
+  location: class org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[150,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[160,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[38,19] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[45,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[52,48] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[64,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[68,23] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[73,20] cannot find symbol
+  symbol:   method getProductName()
+  location: variable request of type org.smarterp.inventory.dto.item.ItemUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[103,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[110,48] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[123,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[131,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[155,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[172,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[32,19] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[43,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[47,23] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[70,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[101,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[36,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[40,46] cannot find symbol
+  symbol:   method getCountedQuantity()
+  location: variable request of type org.smarterp.inventory.dto.stock.StockCountCreateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[43,68] cannot find symbol
+  symbol:   method getId()
+  location: variable savedStockCount of type org.smarterp.inventory.entity.StockCount
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[45,32] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.StockCount)
+  location: variable stockCountMapper of type org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[54,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[56,32] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.StockCount)
+  location: variable stockCountMapper of type org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[65,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[74,36] cannot find symbol
+  symbol:   method findByItemBatchItemId(java.util.UUID)
+  location: variable stockCountRepository of type org.smarterp.inventory.Repository.StockCountRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[75,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[84,36] cannot find symbol
+  symbol:   method findByItemBatchWarehouseId(java.util.UUID)
+  location: variable stockCountRepository of type org.smarterp.inventory.Repository.StockCountRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[85,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[94,36] cannot find symbol
+  symbol:   method findByItemBatchWarehouseIdAndItemBatchWarehouseSectionId(java.util.UUID,java.util.UUID)
+  location: variable stockCountRepository of type org.smarterp.inventory.Repository.StockCountRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[95,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[104,60] cannot find symbol
+  symbol:   variable StockCountStatus
+  location: class org.smarterp.inventory.entity.StockCount
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[105,22] invalid method reference
+  cannot find symbol
+    symbol:   method toDto()
+    location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[115,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[128,27] invalid method reference
+  cannot find symbol
+    symbol:   method getCurrentQuantity(T)
+    location: class org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[34,69] cannot find symbol
+  symbol:   method getSectionCode()
+  location: variable request of type org.smarterp.inventory.dto.section.WarehouseSectionCreateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[37,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[43,71] cannot find symbol
+  symbol:   method getId()
+  location: variable savedSection of type org.smarterp.inventory.entity.WarehouseSection
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[45,38] cannot find symbol
+  symbol:   method toDto(org.smarterp.inventory.entity.WarehouseSection)
+  location: variable warehouseSectionMapper of type org.smarterp.inventory.mapper.WarehouseSectionMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[54,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+  required: java.lang.String
+  found:    java.lang.String,java.lang.String,java.util.UUID
+  reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[56,20] cannot find symbol
+  symbol:   method getSectionCode()
+  location: variable request of type org.smarterp.inventory.dto.section.WarehouseSectionUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[57,52] cannot find symbol
+  symbol:   method getSectionCode()
+  location: variable request of type org.smarterp.inventory.dto.section.WarehouseSectionUpdateRequest
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.480 s
+[INFO] Finished at: 2026-08-08T10:12:19Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project inventory: Compilation failure: Compilation failure: 
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[34,19] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[41,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[52,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[56,23] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[66,44] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[81,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[112,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[120,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[122,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[134,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/CategoryServiceImpl.java:[136,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[40,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[45,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[51,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[58,17] cannot find symbol
+[ERROR]   symbol:   method setPerformedBy(java.util.UUID)
+[ERROR]   location: variable movement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[61,21] cannot find symbol
+[ERROR]   symbol:   method getType()
+[ERROR]   location: variable movement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[61,65] cannot find symbol
+[ERROR]   symbol:   variable IN
+[ERROR]   location: class org.smarterp.inventory.entity.InventoryMovement.MovementType
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[62,51] cannot find symbol
+[ERROR]   symbol:   method getCurrentQuantity()
+[ERROR]   location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[63,28] cannot find symbol
+[ERROR]   symbol:   method getType()
+[ERROR]   location: variable movement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[63,72] cannot find symbol
+[ERROR]   symbol:   variable OUT
+[ERROR]   location: class org.smarterp.inventory.entity.InventoryMovement.MovementType
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[64,26] cannot find symbol
+[ERROR]   symbol:   method getCurrentQuantity()
+[ERROR]   location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[67,51] cannot find symbol
+[ERROR]   symbol:   method getCurrentQuantity()
+[ERROR]   location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[72,73] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedMovement of type org.smarterp.inventory.entity.InventoryMovement
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[74,39] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.InventoryMovement)
+[ERROR]   location: variable inventoryMovementMapper of type org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[83,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[85,39] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.InventoryMovement)
+[ERROR]   location: variable inventoryMovementMapper of type org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[94,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[104,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[121,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[131,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[140,43] cannot find symbol
+[ERROR]   symbol:   method findByPerformedBy(java.util.UUID)
+[ERROR]   location: variable inventoryMovementRepository of type org.smarterp.inventory.Repository.InventoryMovementRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/InventoryMovementServiceImpl.java:[141,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.InventoryMovementMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[41,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[46,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[52,18] cannot find symbol
+[ERROR]   symbol:   method setCurrentQuantity(java.lang.Integer)
+[ERROR]   location: variable itemBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[55,62] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[57,31] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.ItemBatch)
+[ERROR]   location: variable itemBatchMapper of type org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[66,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[68,20] cannot find symbol
+[ERROR]   symbol:   method getManufacturingDate()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[69,51] cannot find symbol
+[ERROR]   symbol:   method getManufacturingDate()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[74,20] cannot find symbol
+[ERROR]   symbol:   method getCostPrice()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[75,43] cannot find symbol
+[ERROR]   symbol:   method getCostPrice()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[77,20] cannot find symbol
+[ERROR]   symbol:   method getSellingPrice()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[78,46] cannot find symbol
+[ERROR]   symbol:   method getSellingPrice()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[80,20] cannot find symbol
+[ERROR]   symbol:   method getSupplierReference()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[81,51] cannot find symbol
+[ERROR]   symbol:   method getSupplierReference()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[83,20] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[84,40] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.batch.ItemBatchUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[88,64] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable updatedBatch of type org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[90,31] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.ItemBatch)
+[ERROR]   location: variable itemBatchMapper of type org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[99,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[101,31] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.ItemBatch)
+[ERROR]   location: variable itemBatchMapper of type org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[110,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[120,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[130,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[140,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[149,90] cannot find symbol
+[ERROR]   symbol:   variable BatchStatus
+[ERROR]   location: class org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[150,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.ItemBatchMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemBatchServiceImpl.java:[160,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[38,19] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[45,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[52,48] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[64,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[68,23] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[73,20] cannot find symbol
+[ERROR]   symbol:   method getProductName()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.item.ItemUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[103,40] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[110,48] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[123,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[131,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[155,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ItemServiceImpl.java:[172,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[32,19] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[43,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[47,23] constructor ResourceAlreadyExistsException in class org.smarterp.inventory.exception.ResourceAlreadyExistsException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[70,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/ProductServiceImpl.java:[101,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[36,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[40,46] cannot find symbol
+[ERROR]   symbol:   method getCountedQuantity()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.stock.StockCountCreateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[43,68] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedStockCount of type org.smarterp.inventory.entity.StockCount
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[45,32] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.StockCount)
+[ERROR]   location: variable stockCountMapper of type org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[54,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[56,32] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.StockCount)
+[ERROR]   location: variable stockCountMapper of type org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[65,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[74,36] cannot find symbol
+[ERROR]   symbol:   method findByItemBatchItemId(java.util.UUID)
+[ERROR]   location: variable stockCountRepository of type org.smarterp.inventory.Repository.StockCountRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[75,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[84,36] cannot find symbol
+[ERROR]   symbol:   method findByItemBatchWarehouseId(java.util.UUID)
+[ERROR]   location: variable stockCountRepository of type org.smarterp.inventory.Repository.StockCountRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[85,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[94,36] cannot find symbol
+[ERROR]   symbol:   method findByItemBatchWarehouseIdAndItemBatchWarehouseSectionId(java.util.UUID,java.util.UUID)
+[ERROR]   location: variable stockCountRepository of type org.smarterp.inventory.Repository.StockCountRepository
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[95,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[104,60] cannot find symbol
+[ERROR]   symbol:   variable StockCountStatus
+[ERROR]   location: class org.smarterp.inventory.entity.StockCount
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[105,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method toDto()
+[ERROR]     location: class org.smarterp.inventory.mapper.StockCountMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[115,19] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/StockCountServiceImpl.java:[128,27] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method getCurrentQuantity(T)
+[ERROR]     location: class org.smarterp.inventory.entity.ItemBatch
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[34,69] cannot find symbol
+[ERROR]   symbol:   method getSectionCode()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.section.WarehouseSectionCreateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[37,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[43,71] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable savedSection of type org.smarterp.inventory.entity.WarehouseSection
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[45,38] cannot find symbol
+[ERROR]   symbol:   method toDto(org.smarterp.inventory.entity.WarehouseSection)
+[ERROR]   location: variable warehouseSectionMapper of type org.smarterp.inventory.mapper.WarehouseSectionMapper
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[54,36] constructor ResourceNotFoundException in class org.smarterp.inventory.exception.ResourceNotFoundException cannot be applied to given types;
+[ERROR]   required: java.lang.String
+[ERROR]   found:    java.lang.String,java.lang.String,java.util.UUID
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[56,20] cannot find symbol
+[ERROR]   symbol:   method getSectionCode()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.section.WarehouseSectionUpdateRequest
+[ERROR] /workspace/Inventory/src/main/java/org/smarterp/inventory/service/impl/WarehouseSectionServiceImpl.java:[57,52] cannot find symbol
+[ERROR]   symbol:   method getSectionCode()
+[ERROR]   location: variable request of type org.smarterp.inventory.dto.section.WarehouseSectionUpdateRequest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[0m[0m
